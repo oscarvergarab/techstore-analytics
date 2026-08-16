@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="TechStore Analytics Premium - tienda tecnológica moderna con diseño profesional, carrito y eventos listos para Google Analytics 4." />
+  <title>TechStore Analytics Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Envío express simulado</span>
+      <span>Experiencia premium en tecnología</span>
+      <span>Lista para Google Analytics 4</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="TechStore Analytics Premium">
+        <span class="brand-icon">T</span>
+        <span class="brand-text">
+          <strong>TechStore</strong>
+          <small>Analytics Premium</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito">
+        <span>🛒</span>
+        <span>Carrito</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-media">
+        <img src="assets/hero-techstore.png" alt="Tecnología premium sobre escritorio moderno" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-copy glass-panel">
+          <span class="eyebrow">Curated tech selection</span>
+          <h1>Tecnología premium<br><span>para un estilo de vida inteligente</span></h1>
+          <p>
+            Descubre una vitrina digital moderna con dispositivos de alto nivel, un recorrido de compra elegante
+            y un entorno ideal para medir comportamiento, intención y conversión con GA4.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn btn-primary" data-track="hero_shop">Explorar catálogo</a>
+            <a href="#experiencia" class="btn btn-secondary" data-track="hero_experience">Conocer la experiencia</a>
+          </div>
+          <div class="hero-points">
+            <span>Selección premium</span>
+            <span>Checkout simulado</span>
+            <span>Eventos ecommerce</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics-strip">
+      <div class="container metrics-grid">
+        <article><strong>+120</strong><span>interacciones simulables</span></article>
+        <article><strong>9</strong><span>productos tecnológicos destacados</span></article>
+        <article><strong>4</strong><span>categorías de compra</span></article>
+        <article><strong>GA4</strong><span>eventos listos para medir</span></article>
+      </div>
+    </section>
+
+    <section class="section categories" id="colecciones">
+      <div class="container">
+        <div class="section-heading centered narrow">
+          <span class="eyebrow">Colecciones</span>
+          <h2>Ambientes tecnológicos de alto impacto</h2>
+          <p>Una composición visual más ejecutiva, moderna y profesional para presentar tu proyecto con mejor nivel.</p>
+        </div>
+        <div class="category-grid">
+          <article class="category-card">
+            <div class="category-icon">💻</div>
+            <h3>Productividad Pro</h3>
+            <p>Portátiles, monitores y periféricos para trabajo, análisis y rendimiento continuo.</p>
+          </article>
+          <article class="category-card">
+            <div class="category-icon">📱</div>
+            <h3>Movilidad Inteligente</h3>
+            <p>Smartphones, wearables y energía portátil pensados para un ecosistema conectado.</p>
+          </article>
+          <article class="category-card">
+            <div class="category-icon">🎧</div>
+            <h3>Audio & Lifestyle</h3>
+            <p>Equipos de audio y accesorios con estética limpia, sobria y premium.</p>
+          </article>
+          <article class="category-card">
+            <div class="category-icon">⚙️</div>
+            <h3>Workspace Setup</h3>
+            <p>Teclados, mouse y accesorios que elevan la experiencia de escritorio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog" id="catalogo">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Catálogo principal</span>
+            <h2>Selección exclusiva</h2>
+            <p>Imágenes más reales, mayor presencia visual y una interfaz refinada para simular una tienda profesional.</p>
+          </div>
+        </div>
+
+        <div class="shop-tools glass-panel soft">
+          <label class="search-box">
+            <span>⌕</span>
+            <input type="search" id="searchInput" placeholder="Buscar por producto o categoría" aria-label="Buscar productos" />
+          </label>
+          <div class="filters" id="filters">
+            <button class="filter active" data-category="Todos">Todos</button>
+            <button class="filter" data-category="Computadores">Computadores</button>
+            <button class="filter" data-category="Móviles">Móviles</button>
+            <button class="filter" data-category="Audio">Audio</button>
+            <button class="filter" data-category="Accesorios">Accesorios</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section experience" id="experiencia">
+      <div class="container experience-grid">
+        <div>
+          <span class="eyebrow">Experiencia premium</span>
+          <h2>Más que una tienda: un showroom digital medible</h2>
+          <p>
+            La interfaz fue mejorada para verse menos estudiantil y más cercana a una tienda ejecutiva: mejor fotografía,
+            jerarquía visual, atmósfera sobria, microinteracciones y mensajes comerciales más elegantes.
+          </p>
+          <ul class="feature-list">
+            <li>Fotografía de producto realista en estilo ecommerce.</li>
+            <li>Hero visual con ecosistema tecnológico completo.</li>
+            <li>Tarjetas, modales y checkout con mejor acabado visual.</li>
+            <li>Preparación para embudo de conversión en Google Analytics 4.</li>
+          </ul>
+        </div>
+        <div class="experience-cards">
+          <article class="info-card dark">
+            <span class="info-label">Eventos clave</span>
+            <h3>view_item · add_to_cart · begin_checkout · purchase</h3>
+            <p>Perfecto para construir dashboards, funnels y análisis de comportamiento.</p>
+          </article>
+          <article class="info-card">
+            <span class="info-label">Look & feel</span>
+            <h3>Estética más corporativa</h3>
+            <p>Uso de fondos suaves, vidrio, sombras premium y una composición más elegante.</p>
+          </article>
+          <article class="info-card">
+            <span class="info-label">Uso académico</span>
+            <h3>Ideal para tu taller</h3>
+            <p>Publica el sitio, genera tráfico y usa los eventos para interpretar métricas en GA4, Python o Streamlit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lifestyle-banner">
+      <div class="container banner-inner glass-panel">
+        <div>
+          <span class="eyebrow">Oferta destacada</span>
+          <h2>Tech Setup Week</h2>
+          <p>Arma un entorno premium con laptop, monitor, audio y accesorios seleccionados.</p>
+        </div>
+        <div class="banner-stat">
+          <strong>25%</strong>
+          <span>OFF simulado</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-analytics" id="analitica-local">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow" style="color:#728ffb">Analítica local en tiempo real</span>
+            <h2>Indicadores dinámicos de la tienda</h2>
+            <p>
+              Estos indicadores se actualizan automáticamente con las acciones realizadas en este navegador.
+              Cuando conectemos Google Analytics 4, GA4 centralizará las interacciones reales de todos los visitantes.
+            </p>
+          </div>
+          <button class="analytics-reset" id="resetDemoAnalytics" type="button">Reiniciar datos demo</button>
+        </div>
+
+        <div class="analytics-live-layout">
+          <div class="about-visual analytics-kpis glass-panel">
+            <div class="mini-kpi"><span>Usuarios locales</span><strong id="kpiUsers">0</strong><small>Navegadores detectados</small></div>
+            <div class="mini-kpi"><span>Sesiones</span><strong id="kpiSessions">0</strong><small>Sesiones en este navegador</small></div>
+            <div class="mini-kpi"><span>Conversión</span><strong id="kpiConversion">0%</strong><small>Compras / sesiones</small></div>
+            <div class="mini-kpi"><span>Compras</span><strong id="kpiPurchases">0</strong><small>Compras simuladas</small></div>
+            <div class="mini-kpi"><span>Ingresos simulados</span><strong id="kpiRevenue">$0</strong><small>Valor acumulado</small></div>
+            <div class="mini-kpi"><span>Eventos</span><strong id="kpiEvents">0</strong><small>Interacciones registradas</small></div>
+          </div>
+
+          <div class="analytics-detail-panel glass-panel soft">
+            <div class="live-status"><span class="live-dot"></span><strong>Registro local activo</strong><span id="lastEventLabel">Esperando interacción...</span></div>
+            <h3>Últimas compras simuladas</h3>
+            <div class="transactions-list" id="transactionsList">
+              <div class="empty-transaction">Aún no se han registrado compras.</div>
+            </div>
+            <div class="analytics-note">
+              <strong>Importante:</strong> esta sección sirve para probar el comportamiento dinámico antes de publicar.
+              No sustituye los informes de Google Analytics 4.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2>Solicita más información</h2>
+          <p>Formulario de demostración para generar un evento de lead y completar la experiencia de análisis.</p>
+        </div>
+        <form id="contactForm" class="contact-form glass-panel soft">
+          <div class="field-row">
+            <label>Nombre<input type="text" required placeholder="Tu nombre"></label>
+            <label>Correo<input type="email" required placeholder="correo@ejemplo.com"></label>
+          </div>
+          <label>Mensaje<textarea rows="4" required placeholder="Escribe tu mensaje"></textarea></label>
+          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+          <p class="form-feedback" id="contactFeedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <span class="eyebrow">Selección actual</span>
+        <h2>Carrito</h2>
+      </div>
+      <button class="icon-btn" id="closeCartBtn" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <span>🛒</span>
+      <h3>Tu carrito está vacío</h3>
+      <p>Explora el catálogo y agrega productos para comenzar la simulación.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+      <small>Valores de demostración. No se procesan pagos reales.</small>
+      <button class="btn btn-primary full" id="checkoutBtn">Finalizar compra</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <dialog class="modal" id="productModal">
+    <button class="icon-btn modal-close" data-close-modal="productModal" aria-label="Cerrar">×</button>
+    <div id="productModalContent"></div>
+  </dialog>
+
+  <dialog class="modal checkout-modal" id="checkoutModal">
+    <button class="icon-btn modal-close" data-close-modal="checkoutModal" aria-label="Cerrar">×</button>
+    <div class="checkout-head">
+      <span class="eyebrow">Checkout simulado</span>
+      <h2>Finalizar compra</h2>
+      <p>Entorno de demostración para prácticas de analítica y conversión. No ingreses datos financieros reales.</p>
+    </div>
+    <form id="checkoutForm">
+      <div class="field-row">
+        <label>Nombre<input type="text" name="name" required placeholder="Nombre de prueba"></label>
+        <label>Correo<input type="email" name="email" required placeholder="demo@ejemplo.com"></label>
+      </div>
+      <div class="field-row">
+        <label>Ciudad
+          <select name="city" required>
+            <option value="">Selecciona</option>
+            <option>Cartagena</option>
+            <option>Bogotá</option>
+            <option>Medellín</option>
+            <option>Barranquilla</option>
+            <option>Otra</option>
+          </select>
+        </label>
+        <label>Método de entrega
+          <select name="delivery" required>
+            <option value="domicilio">Domicilio simulado</option>
+            <option value="recoger">Recoger en showroom</option>
+          </select>
+        </label>
+      </div>
+      <div class="payment-demo">
+        <span>💳</span>
+        <div><strong>Pago de demostración</strong><small>Este flujo solo simula una compra para el taller.</small></div>
+      </div>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <button class="btn btn-primary full" type="submit">Completar compra simulada</button>
+    </form>
+  </dialog>
+
+  <dialog class="modal success-modal" id="successModal">
+    <div class="success-icon">✓</div>
+    <h2>¡Compra simulada completada!</h2>
+    <p id="successMessage"></p>
+    <button class="btn btn-primary" data-close-modal="successModal">Seguir comprando</button>
+  </dialog>
+
+  <div class="shop-toast" id="shopToast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#inicio">
+          <span class="brand-icon">T</span>
+          <span class="brand-text"><strong>TechStore</strong><small>Analytics Premium</small></span>
+        </a>
+        <p>Showroom digital moderno para practicar ecommerce y Google Analytics 4.</p>
+      </div>
+      <div>
+        <strong>Navegación</strong>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#experiencia">Experiencia</a>
+      </div>
+      <div>
+        <strong>Analítica</strong>
+        <span>view_item</span>
+        <span>add_to_cart</span>
+        <span>purchase</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 TechStore Analytics Premium.</span>
+      <span id="gaStatus">GA4: pendiente de configuración</span>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
