@@ -233,11 +233,61 @@ function closeCart(){
   document.getElementById('cartDrawer').setAttribute('aria-hidden','true');
   document.getElementById('overlay').classList.remove('show');
 }
-function showProduct(id){
-  const p=products.find(x=>x.id===id); if(!p)return;
-  trackEvent('select_item',{item_list_id:'catalogo_principal',item_list_name:'Catálogo principal',items:[ecommerceItem(p)]});
-  trackEvent('view_item',{currency:'COP',value:p.price,items:[ecommerceItem(p)]});
-  document.getElementById('productModalContent').innerHTML=`<div class="product-detail"><div class="product-detail-image"><img src="${p.image}" alt="${p.name}"></div><div><span class="eyebrow" style="color:#728ffb">${p.category}</span><h2>${p.name}</h2><div class="rating">★★★★★ &nbsp; ${p.rating}/5</div><p>${p.description}</p><ul>${p.specs.map(s=>`<li>${s}</li>`).join('')}</ul><div class="price">${formatCOP(p.price)}</div><button type="button" class="btn btn-primary full" data-add-modal="${p.id}">Agregar al carrito</button></div></div>`;
+function showProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+
+  // Registra que el usuario seleccionó un producto del catálogo
+  trackEvent('select_item', {
+    item_list_id: 'catalogo_principal',
+    item_list_name: 'Catálogo principal',
+    items: [ecommerceItem(p)]
+  });
+
+  // Registra la visualización del detalle del producto en GA4
+  trackEvent('view_item', {
+    currency: 'COP',
+    value: p.price,
+    items: [ecommerceItem(p, 1)]
+  });
+
+  // Construye y muestra la ventana de detalle del producto
+  document.getElementById('productModalContent').innerHTML = `
+    <div class="product-detail">
+      <div class="product-detail-image">
+        <img src="${p.image}" alt="${p.name}">
+      </div>
+
+      <div>
+        <span class="eyebrow" style="color:#728ffb">
+          ${p.category}
+        </span>
+
+        <h2>${p.name}</h2>
+
+        <div class="rating">
+          ★★★★★ &nbsp; ${p.rating}/5
+        </div>
+
+        <p>${p.description}</p>
+
+        <ul>
+          ${p.specs.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+
+        <div class="price">
+          ${formatCOP(p.price)}
+        </div>
+
+        <button
+          class="btn btn-primary full"
+          data-add-modal="${p.id}">
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+  `;
+
   document.getElementById('productModal').showModal();
 }
 function beginCheckout(){
