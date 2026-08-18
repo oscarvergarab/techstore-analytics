@@ -101,7 +101,9 @@ function recordLocalEvent(name, params={}){
   saveLocalAnalytics(data);
 }
 function renderLocalAnalytics(data=loadLocalAnalytics()){
-  const conversion = data.sessions ? (data.purchases / data.sessions) * 100 : 0;
+  const conversion = data.sessions
+    ? Math.min(100, (data.purchases / data.sessions) * 100)
+    : 0;
   const setText = (id,value)=>{ const el=document.getElementById(id); if(el) el.textContent=value; };
   setText('kpiUsers', formatNumber(data.users));
   setText('kpiSessions', formatNumber(data.sessions));
